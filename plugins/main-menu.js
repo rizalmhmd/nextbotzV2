@@ -292,7 +292,7 @@ let tek = `    ⟪ *Yᴏᴜʀ Iɴғᴏ* ⟫ 
     ◉  𝙊𝙨 𝙋𝙡𝙖𝙩𝙛𝙧𝙤𝙢 : *${os.platform()}*`
 const listMessage = {
   text: tek,
-  footer: '© PutraModz | ALL RESERVED',
+  footer: '© 𝚉𝚊𝚕𝚕 | ALL RESERVED',
   mentions: await conn.parseMention(tek),
   title: ``,
   buttonText: `LIST MENU`,

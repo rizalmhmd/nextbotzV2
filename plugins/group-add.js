@@ -3,8 +3,9 @@ import fetch from 'node-fetch'
  * @type {import('@adiwajshing/baileys')}
  */
 const { getBinaryNodeChild, getBinaryNodeChildren } = (await import('@adiwajshing/baileys')).default
-let handler = async (m, { conn, text, participants }) => {
+let handler = async (m, { conn, text, command, usedPrefix, participants }) => {
     let _participants = participants.map(user => user.id)
+    if (!text) throw await conn.sendButtonDoc(m.chat, `Example : ${usedPrefix}${command} 628xxxxxxx`, wm, 'Owner', '.owner', m)
     let users = (await Promise.all(
         text.split(',')
             .map(v => v.replace(/[^0-9]/g, ''))
@@ -36,7 +37,7 @@ let handler = async (m, { conn, text, participants }) => {
         const content = getBinaryNodeChild(user, 'add_request')
         const invite_code = content.attrs.code
         const invite_code_exp = content.attrs.expiration
-        let teks = `ᴍᴇɴɢᴜɴᴅᴀɴɢ 👤@${jid.split('@')[0]} ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ 📥ɪɴᴠɪᴛᴇ...`
+        let teks = `Mengundang @${jid.split('@')[0]} menggunakan invite...`
         m.reply(teks, null, {
             mentions: conn.parseMention(teks)
         })
@@ -50,6 +51,6 @@ handler.command = /^(add|\+)$/i
 handler.admin = true
 handler.group = true
 handler.botAdmin = true
-handler.owner = true
+handler.owner = false
 
 export default handler

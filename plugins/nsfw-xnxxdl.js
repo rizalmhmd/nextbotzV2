@@ -5,19 +5,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 	let user = global.db.data.users[m.sender]
 	if (user.age < 18) throw 'umur kamu belum cukup dek!';
 	try {
-		let json = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=ee99d6df5f8c5eaf7667a90d&url=${text}`)
+		let json = await fetch(`https://malesin.xyz/xnxxdl?url=${text}`)
   let x = await json.json()
   let caption = `*Title:* ${x.result.title}
   *duration:* ${x.result.duration}
-  *view:* ${x.result.view}
-  *rating:* ${x.result.rating}
-  *like:* ${x.result.like}
-  *dislike:* ${x.result.dislike}
-  *comment:* ${x.result.comment}
-  *tag:* ${Array.from(x.result.tag)}
-  *description:* ${x.result.description}
+  *info:* ${x.result.info}
+  *url:* ${x.result.URL}
   `
-conn.sendFile(m.chat, x.result.link[1].link, 'asupan.mp4', caption, m)
+conn.sendFile(m.chat, x.result.files.low, 'asupan.mp4', caption, m)
 	} catch (e) {
 		throw e;
 	}

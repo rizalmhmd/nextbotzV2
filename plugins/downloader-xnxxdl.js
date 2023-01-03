@@ -23,9 +23,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 		throw e;
 	}
 }
-handler.help = ["xnxxdl", "dlxnxx","xnxx"].map(v => v + ' <url>')
-handler.tags = ["downloader"]
-handler.command = /^(xnxxdl|dlxnxx)$/i
+handler.help = ["xnxxdl"].map(v => v + ' <url>')
+handler.tags = ["nsfw"]
+handler.command = /^(xnxxdl)$/i
 handler.register = true
 handler.premium = true
 

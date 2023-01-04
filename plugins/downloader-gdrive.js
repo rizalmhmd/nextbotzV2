@@ -14,6 +14,7 @@ let handler = async (m, { conn, args }) => {
 }
 handler.command = /^(gdrive)$/i
 handler.disabled = false
+handler.tags = ['downloader']
 handler.limit = true
 
 export default handler

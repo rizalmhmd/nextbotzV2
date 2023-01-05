@@ -4,12 +4,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 	let user = global.db.data.users[m.sender]
 	if (user.age < 18) throw 'umur kamu belum cukup dek!\nawas jangan nonton beginian ya dek, nanti aku bilangin ke ibu kamu loh ><';
 	try {
-		let res = await fetch(`https://malesin.xyz/xnxxsearch?q=${text}`)
+		let res = await fetch(`https://zenzapis.xyz/searching/xnxx?apikey=b8040941f7&query=${text}`)
 		let rest = await res.json()
 		let cap = `Hasil Pencarian Dari ${text}\n`
 	for (let v of rest.result) {
 	 cap += `• *Title :* ${v.title}
-• *Info :* ${v.info}
 • *Link :* ${v.link}
 `
 cap +=  '\n' + '••••••••••••••••••••••••' + '\n'

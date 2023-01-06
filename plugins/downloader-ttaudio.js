@@ -1,26 +1,14 @@
-import axios from 'axios'
-import fetch from 'node-fetch'
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `contoh:\n ${usedPrefix}${command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
-    let res = (await axios.get(API('males', '/tiktok2', { url: args[0] } ))).data;
-    if (res.status != 200) throw res.message;
-    if (!res) throw res.message;
-    
-conn.sendFile(m.chat, res.audio, 'error.mp3', null, m, true, {
-type: 'audioMessage', 
-ptt: false, seconds: 0,contextInfo: {
-         externalAdReply: { showAdAttribution: true,
- mediaUrl: snh,
-    mediaType: 2, 
-    description: snh,
-    title: "Nɪʜ...",
-    body: wm,
-    thumbnail: await (await fetch('https://telegra.ph/file/c72133b197a68d3ea514d.jpg')).buffer(),
-    sourceUrl: snh}}})
+let fetch = require('node-fetch')
+let handler = async (m, { conn, args }) => {
+if (!args[0]) throw 'url nya mana ngenn?'
+let res = await fetch(`https://api.zeeoneofc.xyz/api/downloader/tiktok?url=${args[0]}&apikey=YrxxzZel`)
+ if (!res.ok) throw await `${res.status} ${res.statusText}`
+    let json = await res.json()
+    await conn.sendFile(m.chat, json.result.audio, m)
 }
-handler.tags = ['downloader']
-handler.command = /^(tt|tiktok)(a(udio)?|mp3|sound)(dl)?(download(er)?)?$/i
 
-handler.limit = true
+handler.help = ['ttaudio <url>']
+handler.tags = ['downloader']
+handler.command = /^ttaudio$/i
 
 export default handler

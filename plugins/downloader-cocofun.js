@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `Use example ${usedPrefix}${command} http://i.coco.fun/short/1513tui/`
-        let res = await fetch(`https://api.lolhuman.xyz/api/cocofun?apikey=azzbot&url=${args[0]}`)
+        let res = await fetch(`https://api.lolhuman.xyz/api/cocofun?apikey=8e66d0934cf741bfd2182c16&url=${args[0]}`)
     let x = await res.json()
     conn.sendButton(m.chat, `*${htki} COCOFUN ${htka}*
 *title:* ${x.result.title}

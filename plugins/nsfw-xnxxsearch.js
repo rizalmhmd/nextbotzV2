@@ -21,7 +21,7 @@ cap +=  '\n' + '•••••••••••••••••••••�
 	}
 }
 handler.help = ["xnxxsearch"].map(v => v + ' <query>')
-handler.tags = ["downloader", "premium"]
+handler.tags = ["nsfw"]
 handler.command = /^xnxxsearch|xnxxs$/i
 
 handler.register = true

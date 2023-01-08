@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 	let user = global.db.data.users[m.sender]
 	if (user.age < 18) throw 'umur kamu belum cukup dek!\nawas jangan nonton beginian ya dek, nanti aku bilangin ke ibu kamu loh ><';
 	try {
-		let f = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=azzbot&query=${text}`)
+		let f = await fetch(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=cahyokun&query=${text}`)
 let xx = await f.json()
 let str = xx.result.map((v, index) => {
         return `${1 + index}. Judul *${v.title}*

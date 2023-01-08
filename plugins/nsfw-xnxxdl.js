@@ -5,13 +5,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 	let user = global.db.data.users[m.sender]
 	if (user.age < 18) throw 'umur kamu belum cukup dek!';
 	try {
-		let res = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=cahyokun&url=${text}`)
-		if (res.status !== 200) throw 'Nice'
-    let w = await res.json()
-    let x = w.result
-   let caption = `*${htki} xnxxdl ${htka}*
-   
-  *Title:* ${x.result.title}
+		  let json = await fetch(`https://api.lolhuman.xyz/api/xnxx?apikey=cahyokun&url=${text}`)
+  let x = await json.json()
+  let caption = `*Title:* ${x.result.title}
   *duration:* ${x.result.duration}
   *view:* ${x.result.view}
   *rating:* ${x.result.rating}
@@ -21,11 +17,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   *tag:* ${Array.from(x.result.tag)}
   *description:* ${x.result.description}
   `
-  conn.sendFile(m.chat, x.result.link[1].link, 'asupan.mp4', caption, m)
-	} catch (e) {
+conn.sendFile(m.chat, x.result.link[1].link, 'asupan.mp4', caption, m)
+} catch (e) {
 		throw e;
 	}
 }
+	
+	
+	
 handler.help = ["xnxxdl"].map(v => v + ' <url>')
 handler.tags = ["nsfw"]
 handler.command = /^(xnxxdl|dlxnxx)$/i

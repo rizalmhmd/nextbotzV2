@@ -9,7 +9,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 		if (res.status !== 200) throw 'Nice'
     let w = await res.json()
     let x = w.result
-  let caption = `*Title:* ${x.result.title}
+   let caption = `*${htki} xnxxdl ${htka}*
+   
+  *Title:* ${x.result.title}
   *duration:* ${x.result.duration}
   *view:* ${x.result.view}
   *rating:* ${x.result.rating}

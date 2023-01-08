@@ -73,7 +73,7 @@ const listMessage = {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
   let cap = `
 ┏─• *ᴜsᴇʀs*
-│▸ *sᴛᴀᴛᴜs:* SUKSES TERDAFTAR ☑️
+│▸ *sᴛᴀᴛᴜs:* ☑️ SUKSES TERDAFTAR
 │▸ *ɴᴀᴍᴇ:* ${name}
 │▸ *ᴀɢᴇ:* ${age} ʏᴇᴀʀs
 │▸ *sɴ:* ${sn}

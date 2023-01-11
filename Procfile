@@ -1,1 +1,1 @@
-worker: node . --db 'mongodb+srv://Ep:saep@cluster0.joeag.mongodb.net/?retryWrites=true&w=majority'
+worker: pm2 start index.js && pm2 save && pm2 logs

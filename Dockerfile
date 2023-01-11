@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 COPY package.json .
 
-RUN npm install -g npm@9.2.0 && npm install qrcode-terminal
+RUN npm install -g npm@9.2.0
 
 COPY . .
 
